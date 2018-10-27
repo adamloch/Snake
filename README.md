@@ -4,7 +4,9 @@ Prosta gra w snake, stara wersja bez żadnych power upów (żeby nauczyć się r
 ## Środowisko 
 https://www.qt.io/ -  version 5.11.2
 (uwaga, zajmuje przy instalacji 40GB)
+
 Tutaj masz link do tutorialu który pozwoli ci zacząć https://www.youtube.com/watch?v=4IAb_YESVY4&list=PLyb40eoxkelOa5xCB9fvGrkoBf8JzEwtV&index=4
+
 Dokumentacja QT jest dosc dobra
 
 ## Milestonesy
