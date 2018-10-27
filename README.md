@@ -9,6 +9,6 @@ Dokumentacja QT jest dosc dobra
 
 ## Milestonesy
 - [ ] Stworzenie okienka qt z gridem (kwadraty w których moze sie poruszac snake np 100x50) niech kazde pole bedzie widoczne z rozrysowanymi kreskami pomiedzy)
-- [ ] Stworzenie snake'a jako obiektu który na razie siętylko rusza (zawsze ma dlugosc jeden) i przy przechodzeniu przez sciany pojawia sie z drugiej strony
+- [ ] Stworzenie snake'a jako obiektu który na razie siętylko rusza (zawsze ma dlugosc jeden) i przy przechodzeniu przez sciany pojawia sie z drugiej strony (poruszamy się strzałkami)
 - [ ] Dodanie klasy powerup (jedzenie wydłużające snakea oraz przyspieszenie)
 - [ ] Dodanie porusania się snakea tak jak w prawdziwej grze
