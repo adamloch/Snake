@@ -26,12 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-    snake.cpp \
-    apple.cpp
+    apple.cpp \
+    snakehead.cpp \
+    tail.cpp
 
 HEADERS += \
-    snake.h \
-    apple.h
+    apple.h \
+    snakehead.h \
+    tail.h
 
 FORMS += \
         mainwindow.ui
