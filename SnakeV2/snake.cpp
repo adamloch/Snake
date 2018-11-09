@@ -8,16 +8,12 @@
 #include <QTimer>
 #include <iterator>
 
-#include <iostream>
 snake::snake()
 {
-  //  rects *newRect=new rects(30,30);
-    // l.push_front(newRect);
     QTimer *timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 }
-
 void snake::keyPressEvent(QKeyEvent *event)
 {
     switch(event->key())
@@ -40,18 +36,18 @@ void snake::keyPressEvent(QKeyEvent *event)
         break;
     }
 }
-
-void snake::checkPos()
+void snake::checkBorders()
 {
     double headX=l.front()->pos().x();
     double headY=l.front()->pos().y();
-    double powerUpX=powerUpPtr->powerUpX;
-    double powerUpY=powerUpPtr->powerUpY;
+
     if     (headY>580)  {l.front()->setPos(headX,0);}
     else if(headY<0)    {l.front()->setPos(headX,580);}
     else if(headX>780)  {l.front()->setPos(0    ,headY);}
     else if(headX<0)    {l.front()->setPos(780  ,headY);};
-
+}
+void snake::checkIfOnApple()
+{
     if(headX==powerUpX&&headY==powerUpY)
     {
     scene()->removeItem(powerUpPtr);
@@ -61,6 +57,9 @@ void snake::checkPos()
     }
     else
         deleteLastRect();
+}
+bool snake::checkIfLost()
+{
 
     std::list <rects*> :: iterator it;
     it =l.begin();
@@ -68,7 +67,6 @@ void snake::checkPos()
     bool lose=false;
     for(;it!=l.end();it++)
     {
-
         if( headX==(*it)->rectsX &&headY==(*it)->rectsY)
         lose=true;
     }
@@ -78,12 +76,12 @@ void snake::checkPos()
         for(;it!=l.end();it++)
         {
             scene()->removeItem(*it);
-
         }
         l.clear();
         addRect(380,280);
-
+        return true;
     }
+    return false;
 }
 
 void snake::getPowerUpPtr(powerUp *ptr)
@@ -99,8 +97,16 @@ void snake::deleteLastRect()
 
 void snake::move()
 {
-    addRect(l.front()->x()+dx,l.front()->y()+dy);
-    checkPos();
+
+    headX=l.front()->pos().x();
+    headY=l.front()->pos().y();
+    powerUpX=powerUpPtr->powerUpX;
+    powerUpY=powerUpPtr->powerUpY;
+    if(checkIfLost()==true){return;}
+    addRect(headX+dx,headY+dy);
+    checkBorders();
+    checkIfOnApple();
+
 }
 void snake::addRect(double posX,double posY)
 {

@@ -5,7 +5,6 @@
 
 class powerUp:public QGraphicsRectItem
 {
-
 public:
     double powerUpX;
     double powerUpY;

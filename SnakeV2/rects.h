@@ -9,7 +9,6 @@ public:
     double rectsX;
     double rectsY;
     rects();
-
 };
 
 #endif // RECT_H
